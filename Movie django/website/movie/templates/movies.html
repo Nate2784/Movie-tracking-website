@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{info.name}} |Movies</title>
+    <link rel="icon" sizes="180x180" href="{{icon.image.url}}" alt ="{{icon.name}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/191bbdacd8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/movies.css'%}">
+</head>
+<body>
+  <!-- header start -->
+  {% include "search_header.html" %}
+    <!-- header end -->
+    <main class="container-fluid p-3">
+      <section class="my-5">
+          <div class="d-flex align-items-center">
+             <h2 class="display-5 mt-5"><span>Movies</span></h2> 
+             <div class="dropdown">
+              <button  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span><i class="fa-solid fa-filter fs-1 mt-5 px-2"></i></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item">All</a></li>
+                <li><a class="dropdown-item">Action</a></li>
+                <li><a class="dropdown-item">Animation</a></li>
+                <li><a class="dropdown-item">Comedy</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- movies list -->
+          <div class="p-2 mx-auto">
+            <div class="d-flex flex-wrap justify-content-center movies-bar">
+  
+              {% for single_movie in movies %}
+                    <div class="card m-4" data-genre="{{single_movie.genre}}">
+                    <img src="{{single_movie.image.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 >{{single_movie.movie_name}}</h5>
+                      <p class="m-year lead fs-6"><span>{{single_movie.year}}</span></p>
+                      <p class="genre lead fs-6" style="display:none;"><span>{{single_movie.genre}}</span></p>
+                      <div class="d-flex">
+                        <div class="btn-group m-auto" role="group" aria-label="Basic outlined example">
+                          <button type="button" class="btn btn-outline-primary">Add to LIst</button>
+                          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#movieInfoModal{{single_movie.id}}">info</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade" id="movieInfoModal{{single_movie.id}}" tabindex="-1" aria-labelledby="movieInfoModalLabel{{single_movie.id}}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="movieInfoModalLabel{{single_movie.id}}"><span>{{single_movie.movie_name}}</span></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="{{single_movie.image.url}}" class="img-fluid mb-3" alt="{{single_movie.movie_name}}">
+                                <p><strong>Year:</strong> {{single_movie.year}}</p>
+                                <p><strong>Genre:</strong> {{single_movie.genre}}</p>
+                                <p><strong>Description:</strong> {{single_movie.movie_description}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               {% endfor %}
+            </div>
+            <div class="load-more text-center">
+            <button type="button" class="btn btn-outline-primary">Load More</button>
+          </div>
+          </div>
+      </section>
+   </main>
+  
+ {% include "footer.html" %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  $(document).ready(function() {
+      // Add click event to each genre in the dropdown menu
+      $(".dropdown-item").click(function() {
+          // Get the genre that was clicked
+          var genre = $(this).text();
+  
+          // If "All" was clicked, show all movies
+          if (genre == "All") {
+              $(".card").show();
+          } else {
+              // Hide all movies
+              $(".card").hide();
+  
+              // Show only movies that match the selected genre
+              $(".card").each(function() {
+                  if ($(this).data("genre") == genre) {
+                      $(this).show();
+                  }
+              });
+          }
+      });
+  });
+  </script>
+  
+</body>
+</html>
+

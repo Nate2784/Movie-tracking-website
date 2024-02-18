@@ -1,0 +1,48 @@
+.dropdown button{
+    border: none;
+    background-color: transparent;
+}
+.dropdown-menu a{
+    color: var(--dark-text-color);
+}
+.card{
+    width: 220px;
+    height: auto;
+    box-shadow: 1px 1px 8px black;
+    background-color: var(--card-background);
+    overflow: hidden;
+    margin: 0 auto;
+}
+.movies-bar img{
+    height: 230px;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 1.2em;
+    background-color: var(--card-background);
+}
+.card-body h5{
+    color: var(--light-text-color);
+}
+.btn-outline-primary{
+    color: var(--dark-text-color);
+    border-color:var(--light-text-color);
+    background-color:var(--span);
+    font-weight: 600;
+}
+.btn-outline-primary:hover{
+    color: var(--light-text-color);
+    border-color: var(--dark-text-color);
+    background-color: var(--background-body);
+}
+.modal-content h5{
+    color: var(--span);
+}
+.modal-content p{
+    color: var(--dark-text-color);
+}
+.dropdown-item:hover {
+    cursor: pointer;
+}

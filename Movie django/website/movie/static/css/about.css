@@ -1,0 +1,7 @@
+body{
+    background-color: var(--secondary-background-body);
+    color: var(--dark-text-color);
+}
+.about{
+    margin-top: 10%;
+}

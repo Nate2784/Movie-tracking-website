@@ -1,0 +1,30 @@
+body{
+    background-color: var(--secondary-background-body);
+    color: var(--dark-text-color);
+}
+.display-card{
+    background-color: var(--background-body);
+    color: var(--light-text-color);
+    border-radius: 20px;
+}
+.display-card img{
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+}
+.ticket img{
+    width: 100px;
+    height: auto;
+    transform:rotate(-50deg);
+}
+.btn-outline-primary{
+    color: var(--dark-text-color);
+    border-color:var(--light-text-color);
+    background-color:var(--span);
+    font-weight: 600;
+}
+.btn-outline-primary:hover{
+    color: var(--light-text-color);
+    border-color: var(--dark-text-color);
+    background-color: var(--background-body);
+}

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Prata&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --span:#CAE962;
+    --background-header: #2b2c2d;
+    --background-body: #2a2a2c;
+    --secondary-background-body: rgb(254, 255, 255);
+    --link-color: aliceblue;
+    --light-text-color: #FFFFFF;
+    --dark-text-color: #303134;
+    --card-background: var(--background-header);
+    --movie-bar-background:rgba(240, 248, 255, 0); 
+}
+
+body{
+    background-color: var(--background-body);
+    color: var(--light-text-color);
+    scroll-behavior: smooth;
+}
+span{
+    color: var(--span);
+}
+.navbar{
+    background-color: var(--background-header);
+    box-shadow: 3px 3px 10px 1px var(--span);
+    border-bottom: var(--span) 3px solid;
+    width: 92%;
+    margin: 0 auto;
+    border-radius: 0 0 0px 25px;
+}
+.navbar-brand{
+    font-family: 'prata', serif;
+}
+.navbar-brand:hover{
+    color: var(--span);
+}
+.nav-item a{
+    color: var(--link-color);
+    margin: 0 10px;
+}
+.container-fluid a{
+    color: var(--link-color);
+}
+.nav-item .active{
+    color: var(--span);
+}
+.nav-item a:hover{
+    text-decoration: none;
+    color:var(--span);
+}
+.navbar-toggler{
+    color: var(--light-text-color);
+    border: var(--bs-border-width) solid var(--light-text-color);
+}
+/* end of header */
+footer{
+    border-top: var(--span) solid 3px;
+    background-color: var(--background-header);
+    height: auto;
+}
+footer p{
+    margin-bottom: -1rem;
+    padding: 16px;
+    color: var(--light-text-color);
+    text-align: center;
+    font-size: small;
+}

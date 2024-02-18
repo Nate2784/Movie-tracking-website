@@ -1,0 +1,175 @@
+/* slide show start */
+.carousel-title{
+    position: absolute;
+    z-index: 2;
+    top: 5%;
+    left: 2%;
+    color: var(--span);
+}
+.carousel-item, .carousel{
+    height: 80dvh;
+}
+.carousel-item img{
+    height: inherit;
+}
+.carousel-caption{
+    width: 35%;
+    color: var(--span);
+    position: absolute;
+    bottom:5%;
+    left: 9%;
+    text-align: left;
+    -webkit-animation-name: posi;
+  	-webkit-animation-duration: 2s;
+  	animation-name: posi;
+  	animation-duration: 2s;
+    z-index: 1;
+}
+.carousel-caption p{
+    color: var(--light-text-color);
+    line-height: 1em;
+}
+.carousel-control-next, .carousel-control-prev{
+    color: var(--span);
+    opacity: 1;
+    font-size: xx-large;
+}
+.carousel-control-next{
+    padding-left: 6%;
+}
+.carousel-control-prev{
+    padding-right: 6%;
+}
+.carousel-item img{
+	transform: scale(1, 1);
+	-webkit-animation-name: zoomin;
+  	-webkit-animation-duration: 38s;
+  	animation-name: zoomin;
+  	animation-duration: 38s;
+}
+.overlay{
+	position: absolute;
+	width: 100%;
+	height: 80dvh;
+	background-color: #000;
+	opacity: 0.5;
+    z-index: 1;
+}
+.carousel ol{
+    list-style: none;
+  }
+  /* end of slide show */
+.movies-bar{
+    height: auto;
+    width: 100%;
+    background-color: var(--movie-bar-background);
+}
+.movies-slider{
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+}
+.card{
+    width: 230px;
+    box-shadow: 1px 1px 8px black;
+    overflow: hidden;
+    background-color: var(--card-background);
+    scroll-snap-align: start;
+}
+.movies-bar img{
+    height: 250px;
+}
+.movies-slider::-webkit-scrollbar{
+    height: .7vh;
+}
+.movies-slider::-webkit-scrollbar-track{
+    background-color: var(--background-body);
+}
+.movies-slider::-webkit-scrollbar-thumb{
+    background-color: var(--span);
+    border-radius: 50px;
+    opacity: .2;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 1.2em;
+    background-color: var(--card-background);
+}
+.card-body h5{
+    color: var(--light-text-color);
+}
+.btn-outline-primary{
+    color: var(--dark-text-color);
+    border-color:var(--light-text-color);
+    background-color:var(--span);
+    font-weight: 600;
+}
+.btn-outline-primary:hover{
+    color: var(--light-text-color);
+    border-color: var(--dark-text-color);
+    background-color: var(--background-body);
+}
+.modal-content h5{
+    color: var(--span);
+}
+.modal-content p{
+    color: var(--dark-text-color);
+}
+@-webkit-keyframes zoomin {
+    from {transform: scale(1, 1);}
+    to {transform: scale(1.5, 1.5);}
+  }
+  
+@keyframes zoomin {
+    from {transform: scale(1, 1);}
+    to {transform: scale(1.5, 1.5);}
+}
+@-webkit-keyframes posi {
+    from {left: 30%; opacity: 0.2;}
+    to {left: 9%; opacity: 1;}
+}
+@keyframes posi {
+    from {left: 30%; opacity: 0.2;}
+    to {left: 9%;opacity: 1; }
+}
+@media only screen and (max-width: 650px){
+    .carousel-title{
+        font-size: small;
+    }
+    .btn{
+        font-size: 0.8rem;
+    }
+    .overlay{
+        height: 60dvh;
+    }
+    .carousel-caption h3{
+        font-size: medium;
+        margin: 3px 0;
+        
+    }
+    .carousel-item, .carousel{
+        height: 60dvh;
+    }
+    .carousel-caption p{
+        font-size: x-small;
+    }
+    .movies-bar img{
+          height: 150px;
+      }
+    .card{
+        width: 220px;
+    }
+    .card-body h5{
+        font-size: medium;
+    }
+}
+@media only screen and (max-width: 400px){
+    .carousel-caption{
+        bottom:3%;
+        left: 9%;
+    }
+    .carousel-control-next, .carousel-control-prev{
+        font-size: large;
+    }
+}
