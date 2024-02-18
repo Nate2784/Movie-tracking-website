@@ -69,7 +69,7 @@
                       <h5 >{{movie.movie_name}}</h5>
                       <p class="m-year lead fs-6"><span>{{movie.year}}</span></p>
                       <div class="d-flex">
-                        <div class="btn-group m-auto" role="group" aria-label="Basic outlined example">
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
                           <button type="button" class="btn btn-outline-primary">Add to LIst</button>
                           <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#movieInfoModal{{movie.id}}">info</button>
                         </div>
@@ -112,7 +112,7 @@
                     <h5 >{{movie.movie_name}}</h5>
                     <p class="m-year lead fs-6"><span>{{movie.year}}</span></p>
                     <div class="d-flex">
-                      <div class="btn-group m-auto" role="group" aria-label="Basic outlined example">
+                      <div class="btn-group" role="group" aria-label="Basic outlined example">
                         <button type="button" class="btn btn-outline-primary">Add to LIst</button>
                         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#movieInfoModal{{movie.id}}">info</button>
                       </div>
@@ -156,7 +156,7 @@
                   <h5 >{{movie.movie_name}}</h5>
                   <p class="m-year lead fs-6"><span>{{movie.year}}</span></p>
                   <div class="d-flex">
-                    <div class="btn-group m-auto" role="group" aria-label="Basic outlined example">
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
                       <button type="button" class="btn btn-outline-primary">Add to LIst</button>
                       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#movieInfoModal{{movie.id}}">info</button>
                     </div>
@@ -197,14 +197,14 @@
         <h3 class="mt-4 mb-3">Action Series</h3>
         <div class="p-2 container-lg movies-bar ">
           <div class="mx-2 movies-slider d-flex overflow-x-hidden overflow-x-scroll">
-            {% for movie in comedy %}
+            {% for movie in action_series %}
                 <div class="col-3 card m-3" >
                 <img src="{{movie.image.url}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 >{{movie.movie_name}}</h5>
+                  <h5 >{{movie.show_name}}</h5>
                   <p class="m-year lead fs-6"><span>{{movie.year}}</span></p>
                   <div class="d-flex">
-                    <div class="btn-group m-auto" role="group" aria-label="Basic outlined example">
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
                       <button type="button" class="btn btn-outline-primary">Add to LIst</button>
                       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#movieInfoModal{{movie.id}}">info</button>
                     </div>
@@ -215,14 +215,14 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="movieInfoModalLabel{{movie.id}}">{{movie.movie_name}}</h5>
+                            <h5 class="modal-title" id="movieInfoModalLabel{{movie.id}}">{{movie.show_name}}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="{{movie.image.url}}" class="img-fluid mb-3" alt="{{movie.movie_name}}">
+                            <img src="{{movie.image.url}}" class="img-fluid mb-3" alt="{{movie.show_name}}">
                             <p><strong>Year:</strong> {{movie.year}}</p>
                             <p><strong>Genre:</strong> {{movie.genre}}</p>
-                            <p><strong>Description:</strong> {{movie.movie_description}}</p>
+                            <p><strong>Description:</strong> {{movie.show_description}}</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
@@ -240,14 +240,14 @@
         <h3 class="mt-4 mb-3">Family Series</h3>
         <div class="p-2 container-lg movies-bar ">
           <div class="mx-2 movies-slider d-flex overflow-x-hidden overflow-x-scroll">
-            {% for movie in comedy %}
+            {% for movie in family_series %}
                 <div class="col-3 card m-3" >
                 <img src="{{movie.image.url}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 >{{movie.movie_name}}</h5>
+                  <h5 >{{movie.show_name}}</h5>
                   <p class="m-year lead fs-6"><span>{{movie.year}}</span></p>
                   <div class="d-flex">
-                    <div class="btn-group m-auto" role="group" aria-label="Basic outlined example">
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
                       <button type="button" class="btn btn-outline-primary">Add to LIst</button>
                       <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#movieInfoModal{{movie.id}}">info</button>
                     </div>
@@ -258,14 +258,14 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="movieInfoModalLabel{{movie.id}}">{{movie.movie_name}}</h5>
+                            <h5 class="modal-title" id="movieInfoModalLabel{{movie.id}}">{{movie.show_name}}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="{{movie.image.url}}" class="img-fluid mb-3" alt="{{movie.movie_name}}">
+                            <img src="{{movie.image.url}}" class="img-fluid mb-3" alt="{{movie.show_name}}">
                             <p><strong>Year:</strong> {{movie.year}}</p>
                             <p><strong>Genre:</strong> {{movie.genre}}</p>
-                            <p><strong>Description:</strong> {{movie.movie_description}}</p>
+                            <p><strong>Description:</strong> {{movie.show_description}}</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
@@ -274,7 +274,6 @@
                 </div>
             </div>
            {% endfor %}
-
           </div>
           
         </div><!-- end of Family section -->

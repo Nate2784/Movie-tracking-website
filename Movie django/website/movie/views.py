@@ -18,11 +18,15 @@ shows = show.objects.all()
 cinema = cinema_item.objects.all()
 # genres
 action = get_object_or_404(Genre, name='Action')
-action_movies = movie.objects.filter(genre = action)
+family = get_object_or_404(Genre, name='Family')
 animation = get_object_or_404(Genre, name='Animation')
-animation_movies = movie.objects.filter(genre = animation)
 comedy = get_object_or_404(Genre, name='Comedy')
+action_movies = movie.objects.filter(genre = action)
 comedy_movies = movie.objects.filter(genre = comedy)
+animation_movies = movie.objects.filter(genre = animation)
+action_series = show.objects.filter(genre = action)
+family_series = show.objects.filter(genre = family)
+
 
 data ={
     'icon':icon,
@@ -41,6 +45,8 @@ data ={
     'action':action_movies,
     'animation':animation_movies,
     'comedy':comedy_movies,
+    'action_series':action_series,
+    'family_series':family_series
 }
 def home(request):
     return render(request, 'index.html', data)
