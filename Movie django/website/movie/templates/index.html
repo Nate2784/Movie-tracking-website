@@ -62,7 +62,8 @@
           <h3 class="mt-4 mb-3">Action</h3>
             <div class="p-2 container-lg movies-bar ">
               <div class="mx-2 movies-slider d-flex overflow-x-hidden overflow-x-scroll">
-                {% for movie in action %}
+                {% for movie in movies %}
+                {% if movie.genre.name == 'Action'%}
                     <div class="col-3 card m-3" >
                     <img src="{{movie.image.url}}" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -95,6 +96,7 @@
                         </div>
                     </div>
                 </div>
+                {% endif %}
                {% endfor %}
             </div>
             
@@ -105,7 +107,8 @@
           <h3 class="mt-4 mb-3">Animation</h3>
           <div class="p-2 container-lg movies-bar ">
             <div class="mx-2 movies-slider d-flex overflow-x-hidden overflow-x-scroll">
-              {% for movie in animation %}
+              {% for movie in movies %}
+              {% if movie.genre.name == 'Animation'%}
                   <div class="col-3 card m-3" >
                   <img src="{{movie.image.url}}" class="card-img-top" alt="...">
                   <div class="card-body">
@@ -138,6 +141,7 @@
                       </div>
                   </div>
               </div>
+              {% endif %}
              {% endfor %}
             
             </div> 
@@ -149,7 +153,8 @@
         <h3 class="mt-4 mb-3">comedy</h3>
         <div class="p-2 container-lg movies-bar ">
           <div class="mx-2 movies-slider d-flex overflow-x-hidden overflow-x-scroll">
-            {% for movie in comedy %}
+            {% for movie in movies %}
+            {% if movie.genre.name == 'Comedy'%}
                 <div class="col-3 card m-3" >
                 <img src="{{movie.image.url}}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -182,6 +187,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
            {% endfor %}
           
           </div>
@@ -197,32 +203,33 @@
         <h3 class="mt-4 mb-3">Action Series</h3>
         <div class="p-2 container-lg movies-bar ">
           <div class="mx-2 movies-slider d-flex overflow-x-hidden overflow-x-scroll">
-            {% for movie in action_series %}
+            {% for show in shows %}
+            {% if show.genre.name == 'Action'%}
                 <div class="col-3 card m-3" >
-                <img src="{{movie.image.url}}" class="card-img-top" alt="...">
+                <img src="{{show.image.url}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 >{{movie.show_name}}</h5>
-                  <p class="m-year lead fs-6"><span>{{movie.year}}</span></p>
+                  <h5 >{{show.show_name}}</h5>
+                  <p class="m-year lead fs-6"><span>{{show.year}}</span></p>
                   <div class="d-flex">
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                       <button type="button" class="btn btn-outline-primary">Add to LIst</button>
-                      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#movieInfoModal{{movie.id}}">info</button>
+                      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#movieInfoModal{{show.id}}">info</button>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="modal fade" id="movieInfoModal{{movie.id}}" tabindex="-1" aria-labelledby="movieInfoModalLabel{{movie.id}}" aria-hidden="true">
+              <div class="modal fade" id="movieInfoModal{{show.id}}" tabindex="-1" aria-labelledby="movieInfoModalLabel{{show.id}}" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="movieInfoModalLabel{{movie.id}}">{{movie.show_name}}</h5>
+                            <h5 class="modal-title" id="movieInfoModalLabel{{show.id}}">{{show.show_name}}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="{{movie.image.url}}" class="img-fluid mb-3" alt="{{movie.show_name}}">
-                            <p><strong>Year:</strong> {{movie.year}}</p>
-                            <p><strong>Genre:</strong> {{movie.genre}}</p>
-                            <p><strong>Description:</strong> {{movie.show_description}}</p>
+                            <img src="{{show.image.url}}" class="img-fluid mb-3" alt="{{show.show_name}}">
+                            <p><strong>Year:</strong> {{show.year}}</p>
+                            <p><strong>Genre:</strong> {{show.genre}}</p>
+                            <p><strong>Description:</strong> {{show.show_description}}</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
@@ -230,6 +237,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
            {% endfor %}
 
           </div>
@@ -240,7 +248,8 @@
         <h3 class="mt-4 mb-3">Family Series</h3>
         <div class="p-2 container-lg movies-bar ">
           <div class="mx-2 movies-slider d-flex overflow-x-hidden overflow-x-scroll">
-            {% for movie in family_series %}
+            {% for movie in shows %}
+            {% if movie.genre.name == 'Family'%}
                 <div class="col-3 card m-3" >
                 <img src="{{movie.image.url}}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -273,6 +282,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
            {% endfor %}
           </div>
           
